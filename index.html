@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Super Mario Game</title>
+	<link rel="stylesheet" href="css/game.css" />
+	<script src="code/gameMaps.js"></script>
+</head>
+
+<body>
+
+	<div id="begin-screen" class="begin-screen">
+		<div>
+			<h1>Welcome to Mario</h1>
+			<h1 id="start-button">Start Game</h1>
+		</div>
+		<div id="score-table">
+			<h2>Score Table:</h2>
+			<table id="score-data">
+				<tr>
+					<th>Rank</th>
+					<th>Username</th>
+					<th>Score</th>
+					<th>Time</th>
+				</tr> 
+				<!-- Score data will be inserted here by JavaScript -->
+			 </table>
+			<div id="pagination"></div>
+		</div>
+	</div>
+
+	<div id="pauseScreen" class="pause-screen">
+		<p>This is the pause screen</p>
+		<button id="muteButton" onclick="toggleMute">Sound Off</button>
+		<button id="pauseButton">Pause Game</button>
+		<button id="restartGameButton" onclick="restartGame()">
+			Restart Game
+		</button>
+	</div>
+	<audio id="themeMusic">
+		<source src="./Music/public_audio_music_overworld.ogg" type="audio/ogg" />
+	</audio>
+
+	<!-- Add the "up" sound -->
+	<audio id="upSound">
+		<source src="./Music/public_audio_jump.ogg" type="audio/ogg" />
+	</audio>
+
+	<!-- Add the "coin" sound -->
+	<audio id="coinGrab">
+		<source src="./Music/public_audio_coin.ogg" type="audio/ogg" />
+	</audio>
+
+	<!-- Add the "stomp" sound -->
+	<audio id="stompEnemy">
+		<source src="./Music/public_audio_stomp.ogg" type="audio/ogg" />
+	</audio>
+
+	<!-- Add the "thwomp" sound -->
+	<audio id="blockKnock">
+		<source src="./Music/public_audio_thwomp.ogg" type="audio/ogg" />
+	</audio>
+
+	<!-- Add the "mushroom" sound -->
+	<audio id="mushroomNoise">
+		<source src="./Music/super_mario_bros_mushroom_sound_effect_58k.mp3" type="audio/mp3" />
+	</audio>
+
+	<!-- Add the "starPower" sound -->
+	<audio id="starPower">
+		<source src="./Music/super-mario-bros-nes-music-star-theme-cut-mp3.mp3" type="audio/mp3" />
+	</audio>
+
+	<div class="info">
+		<div class="infoBox">
+			<div id="displayLives"></div>
+		</div>
+		<div class="infoBox">
+			<div id="displayCoins"></div>
+		</div>
+		<div class="infoBox">
+			<div id="displayScore"></div>
+		</div>
+		<div class="infoBox">
+			<div id="displayLevel"></div>
+		</div>
+		<div class="infoBox">
+			<div id="remainingTimeDisplay"></div>
+		</div>
+	</div>
+
+	<div id="totalScoreScreen" style="display: none">
+		<h2>Total Score:</h2>
+		<p id="finalTotalScore">0</p>
+	</div>
+
+	<div id="submit-score" style="display: none;">
+		<h2>Submit Your Score</h2>
+		<form id="score-form" method="GET">
+			<label for="player-name">Name:</label>
+			<input type="text" id="player-name" name="player-name" required>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+	
+
+	<script type="module" src="/code/game.js"></script>
+</body>
+</html>
